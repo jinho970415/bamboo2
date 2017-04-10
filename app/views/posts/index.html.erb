@@ -1,0 +1,112 @@
+<style>
+.main_wrapper {
+
+margin: 3rem 0;
+
+}
+body {
+
+font-family: "Roboto", Helvetica, Arial, sans-serif;
+
+font-weight: 100;
+
+font-size: 12px;
+
+line-height: 30px;
+
+
+color: #777;
+
+background-image:linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+
+}
+
+
+.container {
+
+max-width: 900px;
+
+width: 100%;
+
+margin: 5% auto;
+
+padding: 2rem;
+
+position: relative;
+
+background-color: #eeeeee;
+
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+
+}
+.h1{
+    text-align: center;
+}
+.menu{
+    text-align: right;
+
+}
+
+
+
+
+</style>
+
+
+
+
+<div class='container'>
+<div class='h1'>
+<h1>대나무숲(remaster)</h1>
+<p>자유롭게 글을 작성해주세요</p>
+</div>
+<br>
+<h3><%= link_to '글 작성', new_post_path %></h3> <br>
+
+
+<section class="main_wrapper">
+<% @posts.each do |post| %>
+
+   <div class="panel panel-default">
+
+     <div class="panel-heading">
+         <div class="article_header">
+              
+              <!--<div class="header_title">-->
+                <!--<h5>Bamboo Forest</h5>-->
+                
+              <!--</div>-->
+     
+        <h5 style='float: right'><%= post.created_at.strftime('%Y %B %-d') %></h5>
+
+       <h3 class="panel-title">|<%=post.cate.name %>|<%= post.title %>  </h3>
+       <div class="panel-body">
+
+       <%= post.content %><br>
+       
+    
+      
+
+     </div>
+
+     
+        <% @posts.each do |p| %>
+    <div class='menu'>
+    <%= link_to '보기', post_path(p.id) %> |
+    <%= link_to '수정', edit_post_path(p.id) %> |
+    <%= link_to '삭제', post_path(p.id), method: :delete, data: { confirm: '이 글을 삭제하시겠습니까?'} %>
+    <br>
+    </div>
+<% end %>
+
+     </div>
+
+     
+
+   </div>
+
+<% end %>
+
+</section>
+</div>

@@ -1,0 +1,62 @@
+<style>
+/*input[type="submit"] {*/
+/*  cursor: pointer;*/
+/*  width: 860px;*/
+/*  border: none;*/
+/*  background: #AED9DA;*/
+/*  color: #FFF;*/
+  
+/*  margin: 0 0 5px;*/
+/*  padding: 10px;*/
+/*  font-size: 30px;}*/
+  
+body {
+
+font-family: "Roboto", Helvetica, Arial, sans-serif;
+
+font-weight: 100;
+
+font-size: 12px;
+
+line-height: 30px;
+
+
+color: #777;
+
+background-image:linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+
+}
+
+
+.container {
+
+max-width: 900px;
+
+width: 100%;
+
+margin: 5% auto;
+
+padding: 2rem;
+
+position: relative;
+
+background-color: #eeeeee;
+
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+/*input[type='text'], textarea {*/
+/* width: 100%;*/
+/* border: 1px solid #ccc;*/
+/* background: #FFF;*/
+/* margin: 0 0 5px;*/
+/* padding: 10px;*/
+
+</style>
+<div class='container'>
+<h1>제목: <%= @post.title %></h1>
+<p>내용: <%= @post.content %></p>
+<p>카테고리:<%=@post.cate.name %></p>
+<%= link_to 'Back', posts_path %>
+</div>
