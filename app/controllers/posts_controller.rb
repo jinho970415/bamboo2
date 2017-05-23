@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   
+  
   def index
     @posts = Post.all
+    @result= Post.search(params[:word])
   end
 
   def new
